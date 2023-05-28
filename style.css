@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url(clouds.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+input {
+    padding: 1rem;
+    border-radius: 25px;
+    border: none;
+    background-color: #fff;
+    font-family: inherit;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    font-size: 1rem;
+}
+input:focus {
+    outline: none;
+}
+.weather {
+    text-align: center;
+    font-size: 20px;
+    background-color: skyblue;
+    border-radius: 25px;
+    margin-top: 25px;
+    opacity: 70%;
+    width:500px;
+}
+.weather h2 {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+} 
+
+.p_weather{
+    display: flex;
+    justify-content: space-between;
+}
+
+.one{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
+
+.two{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
+
+.three{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
+
+.four{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
+
+.five{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}

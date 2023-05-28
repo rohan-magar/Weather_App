@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Weather Now</h1>
+    <form id="form">
+        <input type="text" id="search" placeholder="Search By Location" autocomplete="off">
+    </form>
+    <div class="weather">
+        <h1 id="location"></h1>
+        <p id="displayDate"></p>
+        <h3 id="temperature"></h3>
+        <h3 id="condition"></h3>
+        <img id="weather-icon"></img>
+        <p id="humidity"></p>
+        <p id="wind"></p>  
+        <p id="pressure"></p>
+        <div class="p_weather">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    <script src="script.js"></script>
+    <?php
+        $conn = mysqli_connect("localhost","root","","heralddb");
+        $json_data = file_get_contents("https://api.openweathermap.org/data/2.5/weather?q=norwich&units=metric&appid=d2700e6f6ba228c52493fce891c9b4f8");
+        $data = json_decode($json_data,true);
+        $city = $data['name'];
+        $temperature = $data['main']['temp'];
+        $humidity = $data['main']['humidity'];
+        $pressure = $data['main']['pressure'];
+        $wind_speed = $data['wind']['speed'];
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO weather (city, temperature, humidity, pressure, wind_speed,date) 
+        VALUES ('$city', '$temperature', '$humidity', '$pressure', '$wind_speed','$date')";
+
+        mysqli_query($conn, $sql);
+        mysqli_close($conn);
+    ?>
+</body>
+
+</html>
